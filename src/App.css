@@ -1,38 +1,149 @@
+
 .App {
+  height:100vh;
+  width: 100vw;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:space-evenly;
+  font-size:1em;
+  z-index: 2; 
+  color: #34495e;
+
+}
+li{
+  margin: 5% 0;
 }
 
-.App-link {
-  color: #61dafb;
+.App-logo {
+  width: 7vmin;
+  margin: 0;
+  pointer-events: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.row {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+h1{
+  font-size: 1.5em;
+  margin: 0em 0 0.5em 0;
+  font-family:'Times New Roman', Times, serif;
+}
+h2{
+  font-size: 1.5em;
+}
+h3{
+  font-size: 1em;
+}
+h4{
+  font-size: 0.5em;
+}
+h5{
+  font-size: 0.25em;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.ModalOpen {
+  animation: openModal 0.25s ease-out ;
+}
+
+@keyframes openModal {
+  0% { opacity:0; }
+  100% { opacity:0.5;   }
+}
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal {
+  z-index: 100;
+  background: white;
+  position: relative;
+  margin: 1.75rem auto;
+  border-radius: 20px;
+  max-width: 500px;
+  padding: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+}
+
+.modal-close-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: .3;
+  cursor: pointer;
+  border: none;
+}
+
+button {
+  font-size: .9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3px;
+  padding: .3rem 1rem;
+  margin-left: .5rem;
+}
+
+.button-default {
+  background: #247BA0;
+  color: #fff;
+}
+input{
+  margin: 2% 0;
+  width: 70%;
+}
+
+label{
+  font-size: 10;
+  color:gray;
+  padding: 10px;
+  margin: 0 10%;
+}
+
+form{text-align: center;}
+
+.img_desc{
+  width:70%;
+  border-radius:10%;
+}
+input[type=button]{
+  color: #34495e;
 }
