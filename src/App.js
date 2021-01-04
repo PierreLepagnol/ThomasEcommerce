@@ -1,31 +1,28 @@
 import React from "react";
-import './App.css';
-import './stylemobile.css';
-import ProductView from './ProductView';
-import TitleView from './TitleView';
-import PaymentView from './PaymentView';
+import "./App.css";
+import "./stylemobile.css";
+import "./style.css";
+import ProductView from "./ProductView";
+import TitleView from "./TitleView";
+import SideBar from "./SideBar";
 
+import { Switch, Route } from "react-router-dom";
+import AboutView from "./AboutView";
 
-import Modal from "./Modal";
-import useModal from './useModal'
-
-export const ModalContext=React.createContext({})
-
+export const ModalContext = React.createContext({});
 
 function App() {
-  const {isShowing, toggle} = useModal();
-  const [isLoaded,setIsLoaded]=React.useState(false)
-  const [error,setError]=React.useState(false)
-  const [product,setProduct]=React.useState({})
+  const [isLoaded, setIsLoaded] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [product, setProduct] = React.useState({});
 
   React.useEffect(() => {
-    fetch("http://localhost:3000/menu")
-    .then(res => res.json())
-      .then((result) => {
-          console.log(result);
+    fetch("http://localhost:3001/menu")
+      .then((res) => res.json())
+      .then(
+        (result) => {
           setIsLoaded(true);
           setProduct(result[0]);
-
         },
         // Remarque : il faut gérer les erreurs ici plutôt que dans
         // un bloc catch() afin que nous n’avalions pas les exceptions
@@ -34,25 +31,34 @@ function App() {
           setIsLoaded(true);
           setError(error);
         }
-      )
-  }, [product])
-  
+      );
+  }, [product]);
+
   if (error) {
     return <div>Erreur : {error.message}</div>;
   } else if (!isLoaded) {
     return <div>Chargement...</div>;
   } else {
     return (
-      <ModalContext.Provider value={{isShowing, toggle}}>
       <div className="App">
+        <div className="main-container">
           <TitleView />
-          <ProductView product={product}/>
-          <Modal isShowing={isShowing} hide={toggle}><PaymentView product={product}/></Modal>
+        </div>
+        <div className="">
+          <div className="features-small-item main-view">
+            <Switch>
+              <Route exact path="/">
+                <ProductView product={product} />
+              </Route>
+              <Route exact path="/contact">
+                <AboutView />
+              </Route>
+            </Switch>
+          </div>
+          <SideBar product={product} />
+        </div>
       </div>
-      </ModalContext.Provider>
-    );  
-}
-
-  
+    );
+  }
 }
 export default App;
