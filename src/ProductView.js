@@ -65,7 +65,7 @@ const entree = {
 };
 
 export default function ProductView({ product }) {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [, setCurrentSlide] = React.useState(0);
 
   const menu1 = {
     entree: entree,

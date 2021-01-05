@@ -17,7 +17,7 @@ function App() {
   const [product, setProduct] = React.useState({});
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/menu")
+    fetch("http://192.168.1.56:3001/menu")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -41,10 +41,8 @@ function App() {
   } else {
     return (
       <div className="App">
-        <div className="main-container">
           <TitleView />
-        </div>
-        <div className="">
+        <div className="main-container">
           <div className="features-small-item main-view">
             <Switch>
               <Route exact path="/">

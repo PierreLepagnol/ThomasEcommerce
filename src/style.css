@@ -1,28 +1,39 @@
 /* Style pour desktop */
 .card {
-  padding: 1em;
-  justify-content: space-evenly;
-  flex-direction: column;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1%;
 }
+.text-container{
+  flex-grow: 1;
+  text-align: left;
+  line-height: 1em;
 
-#title-card{
+}
+.title-card{
   color: #34495e;
-  position: absolute;
-  top: 1em;
-  left: 1em;
-
+  font-weight: lighter;
 }
 
-#subtitle-card{
-  position: absolute;
-  top: 4em;
-  left: 4em;
+.subtitle-card{
 }
 .left{
   width: 50%;
-  text-align: center;
 }
 .right{
   width: 50%;
 
+}
+.img_desc {
+  border-radius: 10%;
+  width: 80%;
+
+}
+
+.img-container{
+width: 25%;
+display: flex;
+justify-content: left;
 }

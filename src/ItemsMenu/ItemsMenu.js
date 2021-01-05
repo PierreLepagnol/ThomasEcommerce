@@ -11,11 +11,18 @@ export default function ItemsMenu({ menu }) {
 
 function Item({ Title, name, description, photoURL }) {
   return (
-    <div className="card">
-      <h2 className="title-card">{Title}</h2><h3 className="item-header">{name}</h3>
-      <p>{description}</p>
+    <div className="card  ">
+      <div className="img-container">
+       <img alt={"desc"} className="img_desc" src={photoURL} />
+
+      </div>
       
-      <img alt={"desc"} className="img_desc" src={photoURL} />
+      <div className="text-container">
+        
+      <h2 className="title-card">{Title}: <b>{name}</b></h2>
+      <p>{description}</p>
+        </div>
+      
     </div>
   );
 }

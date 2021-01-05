@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from "formik";
+import { Field, useFormik } from "formik";
 import { useCounter } from "./useCounter";
 
 import { Elements } from "@stripe/react-stripe-js";
@@ -26,7 +26,12 @@ const MyCheckoutForm = ({ product }) => {
   const stripe = useStripe();
   const elements = useElements();
   const formik = useFormik({
-    initialValues: { name: "", phone: "", address: "", email: "" },
+    initialValues: {
+      name: "",
+      phone: "",
+      address: "",
+      email: "",
+    },
     onSubmit: (values) => {
       handleSubmitStripe(values);
     },
@@ -76,7 +81,7 @@ const MyCheckoutForm = ({ product }) => {
     },
   };
   const inputs = [
-    { id: "name", name: "name", placeholder: "Nom - Prenom", type: "text" },
+    { id: "name", name: "name", placeholder: "ffdNom - Prenom", type: "text" },
     {
       id: "phone",
       name: "phone",
@@ -91,8 +96,6 @@ const MyCheckoutForm = ({ product }) => {
     },
     { id: "email", name: "email", placeholder: "Courriel", type: "email" },
     { id: "email", name: "email", placeholder: "", type: "email" },
-
-
   ];
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -123,9 +126,12 @@ const MyCheckoutForm = ({ product }) => {
             removeCountHandler();
           }}
         />
-
       </div>
-      <p>Total : {product.price * count} €</p>
+      <Field type="radio" name="picked" value="One" />
+
+      <p>
+        Total : {product.price * count} € {formik.values.toggle}
+      </p>
       <CardElement options={CARD_ELEMENT_OPTIONS} />
       <button type="submit" disabled={!stripe}>
         Commander
@@ -135,14 +141,17 @@ const MyCheckoutForm = ({ product }) => {
 };
 
 const InputField = ({ input, onChange, value }) => {
+  console.log(input)
   return (
-    <input
-      id={input.id}
-      name={input.name}
-      placeholder={input.placeholder}
-      type={input.type}
-      onChange={onChange}
-      value={value[input.name]}
-    />
+    <React.Fragment>
+      <input
+        id={input.id}
+        name={input.name}
+        placeholder={input.placeholder}
+        type={input.type}
+        onChange={onChange}
+        value={value[input.name]}
+      />
+    </React.Fragment>
   );
 };
