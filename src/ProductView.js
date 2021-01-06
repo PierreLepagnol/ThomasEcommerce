@@ -83,6 +83,7 @@ export default function ProductView({ product }) {
     beforeChange: (_, next) => setCurrentSlide(next),
   };
   return (
+    <>
     <Slider {...settings}>
       <div>
         <ItemsMenu menu={menu1} />
@@ -91,13 +92,10 @@ export default function ProductView({ product }) {
         <ItemsMenu menu={menu1} />
       </div>
     </Slider>
+    <p>Les livraisons sont assurées <b>uniquement</b> en Ile de France (77, 78, 91, 92, 93, 95).<br/> L'envoi par coli vous sera facturé différement selon l'adresse de livraison</p>
+    </>
   );
 }
-
-/* <p>{JSON.stringify(product)}</p> */
-/* <Apero/> */
-/* <Plat/> */
-/* <Dessert/> */
 
 /* <h2 className="title-card">{product.name}</h2>
       <div className="row ">

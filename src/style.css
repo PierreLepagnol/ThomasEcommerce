@@ -17,23 +17,33 @@
   font-weight: lighter;
 }
 
-.subtitle-card{
-}
-.left{
-  width: 50%;
-}
-.right{
-  width: 50%;
-
-}
 .img_desc {
   border-radius: 10%;
+  max-width: 500px;
   width: 80%;
-
 }
-
 .img-container{
 width: 25%;
 display: flex;
 justify-content: left;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+}
+.space-between{
+  justify-content: space-between;
+  align-items: center;
+}
+.space-around{
+  justify-content: space-around;
+  align-items: center;
+}
+
+.third{
+  width: 33%;
+}
+.pad-15{padding: 1.5em;}
+.label-radio{
+    margin: 3%;
 }

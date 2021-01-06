@@ -4,12 +4,12 @@ import React from 'react'
 export default function NavBar() {
     return (
         <nav>
-          <ul>
+          <ul  className="center">
             <li>
               <Link to="/">La Carte</Link>
             </li>
             <li>
-              <Link to="/contact">Qui sommes nous ?</Link>
+              <Link to="/contact">Le Concept</Link>
             </li>
           </ul>
         </nav>

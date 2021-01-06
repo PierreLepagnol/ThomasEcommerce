@@ -11,7 +11,7 @@ export default function ItemsMenu({ menu }) {
 
 function Item({ Title, name, description, photoURL }) {
   return (
-    <div className="card  ">
+    <div className="card">
       <div className="img-container">
        <img alt={"desc"} className="img_desc" src={photoURL} />
 

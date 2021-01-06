@@ -26,7 +26,7 @@ const MyCheckoutForm = ({ product }) => {
   const stripe = useStripe();
   const elements = useElements();
   const formik = useFormik({
-    initialValues: { name: "", phone: "", address: "", email: "", menu_id:0 },
+    initialValues: { name: "", phone: "", address: "", email: "", menu_id: 0 },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       handleSubmitStripe(values);
@@ -60,7 +60,7 @@ const MyCheckoutForm = ({ product }) => {
       console.log("[PaymentMethod]", paymentMethod);
     }
   };
-  /* const CARD_ELEMENT_OPTIONS = {
+  const CARD_ELEMENT_OPTIONS = {
     style: {
       base: {
         color: "#32325d",
@@ -76,7 +76,7 @@ const MyCheckoutForm = ({ product }) => {
         iconColor: "#fa755a",
       },
     },
-  }; */
+  };
   const inputs = [
     { id: "name", name: "name", placeholder: "Nom - Prenom", type: "text" },
     {
@@ -92,15 +92,9 @@ const MyCheckoutForm = ({ product }) => {
       type: "text",
     },
     { id: "email", name: "email", placeholder: "Courriel", type: "email" },
-    {
-      id: "menu_id",
-      name: "menu_id",
-      type: "radio-button",
-      values: [0, 1],
-    },
   ];
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form className="col" onSubmit={formik.handleSubmit}>
       {inputs.map((input) => (
         <InputField
           key={input.id}
@@ -109,8 +103,14 @@ const MyCheckoutForm = ({ product }) => {
           value={formik.values}
         />
       ))}
-
-      <div>Picked: {formik.values.menu_id}</div>
+      <div id="my-radio-group">Menu n°{Number(formik.values.menu_id)+1}</div>
+      <div className="row center" role="group">
+          <input type="radio" name="menu_id" value={0} onChange={formik.handleChange}/>
+          <label className="label-radio">1</label>
+          
+          <input type="radio" name="menu_id" value={1} onChange={formik.handleChange}/>
+          <label className="label-radio">2</label>
+      </div>
 
       <div className="row" style={{ margin: 0 }}>
         <label>{count} personnes</label>
@@ -118,53 +118,31 @@ const MyCheckoutForm = ({ product }) => {
           type="button"
           name="increment"
           value="+1"
-          onClick={() => {
-            addCountHandler();
-            console.log(count);
-          }}
+          onClick={() => addCountHandler()}
         />
         <input
           type="button"
           name="decrement"
           value="-1"
-          onClick={() => {
-            removeCountHandler();
-            console.log(count);
-          }}
+          onClick={() => removeCountHandler()}
         />
       </div>
       <p>Total : {product.price * count} €</p>
-      {/* <CardElement options={CARD_ELEMENT_OPTIONS} /> */}
-      <button type="submit" disabled={!stripe}>
-        Commander
-      </button>
+      <CardElement options={CARD_ELEMENT_OPTIONS} />
+      <div className="row">
+        <button type="submit" disabled={!stripe}>
+          Commander Immediatement
+        </button>
+        <button type="submit" disabled={!stripe}>
+          Envoyer une demande
+        </button>
+      </div>
     </form>
   );
 };
 
 const InputField = ({ input, onChange, value }) => {
   switch (input.type) {
-    case "radio-button":
-      return (
-        <>
-          <div id="my-radio-group">Picked</div>
-          <div role="group">
-            {input.values.map((v) => {
-              return (
-                <label>
-                  <input
-                    type="radio"
-                    name={input.name}
-                    value={v}
-                    onChange={onChange}
-                  />
-                  {v}
-                </label>
-              );
-            })}
-          </div>
-        </>
-      );
     case "text-area":
       return <textarea name="Text1" cols="20" rows="5"></textarea>;
     default:

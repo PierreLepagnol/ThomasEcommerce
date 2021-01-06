@@ -14,17 +14,12 @@ export default function ContactForm({ product }) {
 
   const inputs = [
     { id: "name", name: "name", placeholder: "Nom - Prenom", type: "text" },
-    {
-      id: "phone",
-      name: "phone",
-      placeholder: "Numero de telephone",
-      type: "tel",
-    },
+    { id: "phone",name: "phone",placeholder: "Numero de telephone", type: "tel"},
     { id: "email", name: "email", placeholder: "Courriel", type: "email" },
     { id: "msg", name: "msg", placeholder: "Message", type: "text-area" },
   ];
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form  className="col" onSubmit={formik.handleSubmit}>
       {inputs.map((input) => (
         <InputField
           key={input.id}
@@ -44,7 +39,7 @@ export default function ContactForm({ product }) {
 const InputField = ({ input, onChange, value }) => {
   switch (input.type) {
     case "text-area":
-      return <textarea name="Text1" cols="20" rows="5"></textarea>;
+      return <textarea name={input.name} placeholder={input.placeholder} cols="25" rows="10"></textarea>;
     default:
       return (
         <input
