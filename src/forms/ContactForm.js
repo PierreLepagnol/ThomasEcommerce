@@ -1,25 +1,37 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useAlert } from 'react-alert'
+import axios from "axios";
+
 export default function ContactForm({ product }) {
+  const alert = useAlert();
   const formik = useFormik({
-    initialValues: { name: "", phone: "", address: "", email: "" },
+    initialValues: { name: "", phone: "", email: "" },
     onSubmit: (values) => {
       handleSubmit(values);
     },
   });
   const handleSubmit = async (values) => {
-    // Block native form submission.
     console.log(values);
+    // Block native form submission.
+    const response = await axios.post("http://localhost:3001/contact/new_msg",{...values})
+    console.log(response)
+    alert.show('Oh look, an alert!')
   };
 
   const inputs = [
     { id: "name", name: "name", placeholder: "Nom - Prenom", type: "text" },
-    { id: "phone",name: "phone",placeholder: "Numero de telephone", type: "tel"},
+    {
+      id: "phone",
+      name: "phone",
+      placeholder: "Numero de telephone",
+      type: "tel",
+    },
     { id: "email", name: "email", placeholder: "Courriel", type: "email" },
     { id: "msg", name: "msg", placeholder: "Message", type: "text-area" },
   ];
   return (
-    <form  className="col" onSubmit={formik.handleSubmit}>
+    <form className="col" onSubmit={formik.handleSubmit}>
       {inputs.map((input) => (
         <InputField
           key={input.id}
@@ -39,7 +51,14 @@ export default function ContactForm({ product }) {
 const InputField = ({ input, onChange, value }) => {
   switch (input.type) {
     case "text-area":
-      return <textarea name={input.name} placeholder={input.placeholder} cols="25" rows="10"></textarea>;
+      return (
+        <textarea
+          name={input.name}
+          placeholder={input.placeholder}
+          cols="25"
+          rows="10"
+        ></textarea>
+      );
     default:
       return (
         <input

@@ -1,8 +1,5 @@
 import React from "react";
-import ItemsMenu from "./ItemsMenu/ItemsMenu";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ItemsMenu from "../ItemsMenu/ItemsMenu";
 
 const dessert = {
   id: 1,
@@ -51,8 +48,16 @@ const plat = {
 };
 
 const entree = {
+  name: "Saumon gravlax au baies roses",
+  photoURL:
+    "https://pourquoijegrossis.com/wp-content/uploads/2017/12/1-3-980x629.jpg",
+  description:
+    "Saumon gravlax  au baies roses, crème aigrelette,(Pain de suédois/ Tuile cranquante) mesclun de salade",
+};
+
+const entree2 = {
   id: 1,
-  name: "velouté de la Saint Valentin",
+  name: "Entree2",
   price: 8,
   shippingDate: "2020-12-26T18:12:55.000Z",
   composition: [],
@@ -65,35 +70,59 @@ const entree = {
 };
 
 export default function ProductView({ product }) {
-  const [, setCurrentSlide] = React.useState(0);
-
   const menu1 = {
-    entree: entree,
-    plat: plat,
-    dessert: dessert,
+    name:"Menu 25 €",
+    products:[entree,plat,dessert],
+    price: 25,
+    winelist: [],
+    shippingDate: "2020-12-26T18:12:55.000Z",
   };
-  var settings = {
-    adaptiveHeight: true,
-    lazyLoad: "progressive",
-    arrows: false,
-    dots: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    beforeChange: (_, next) => setCurrentSlide(next),
+  const menu2 = {
+    name:"Menu 39 €",
+    products:[entree2,plat,dessert],
+    price: 39,
+    winelist: [],
+    shippingDate: "2020-12-26T18:12:55.000Z",
   };
+
+  const appetizer = {
+    name:"Amuses Bouches",
+    products:[
+      {name:"Maki de saint jacques citronné",description:"Delicieux met pour 2 personnes ( 4 pièces)",price:7,photoURL:"https://lh3.googleusercontent.com/proxy/uezbj2-5nMevdRKytocLI-zEPZFAVMdaRcLmNoSotBVGpO8j12PtuONWsIO7So5JbpZbedM7qhhoUtVnc25ifySJ213Kxn-aAdLhM6RLFaz-1Cq4j9azbiU7fSbT8F0iD9_IxiGB8BCzG8fRU0mVizQRJy_4fkz-421ijQ"}
+      ,{name:"Focaccia",price:5,photoURL:"",description:"pour 2 personnes"}
+    ],
+    winelist: [],
+    shippingDate: "2020-12-26T18:12:55.000Z",
+  };
+  ;
+
+  const cheeses = [
+    {
+      name: "Saumon gravlax au baies roses",
+      photoURL:
+        "https://pourquoijegrossis.com/wp-content/uploads/2017/12/1-3-980x629.jpg",
+      description:
+        "Saumon gravlax  au baies roses, crème aigrelette,(Pain de suédois/ Tuile cranquante) mesclun de salade",
+    },
+  ];
+  const cuteness = [
+    {
+      name: "Saumon gravlax au baies roses",
+      photoURL:
+        "https://pourquoijegrossis.com/wp-content/uploads/2017/12/1-3-980x629.jpg",
+      description:
+        "Saumon gravlax  au baies roses, crème aigrelette,(Pain de suédois/ Tuile cranquante) mesclun de salade",
+    },
+  ];
+
   return (
-    <>
-    <Slider {...settings}>
-      <div>
-        <ItemsMenu menu={menu1} />
-      </div>
-      <div>
-        <ItemsMenu menu={menu1} />
-      </div>
-    </Slider>
-    <p>Les livraisons sont assurées <b>uniquement</b> en Ile de France (77, 78, 91, 92, 93, 95).<br/> L'envoi par coli vous sera facturé différement selon l'adresse de livraison</p>
-    </>
+    <div className="main-view">
+      <ItemsMenu item={menu1}/>
+      <ItemsMenu item={menu2} />
+      <ItemsMenu item={appetizer} />
+      {/* <ItemsMenu item={cheeses} />
+      <ItemsMenu item={cuteness} /> */}
+    </div>
   );
 }
 

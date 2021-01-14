@@ -1,11 +1,10 @@
 import React from "react";
-export default function ItemsMenu({ menu }) {
+export default function ItemsMenu({item}) {
   return (
-    <>
-      <Item Title="Entree" {...menu.entree} />
-      <Item Title="Plat" {...menu.plat} />
-      <Item Title="Dessert" {...menu.dessert} />
-    </>
+    <div className="features-small-item margin-bottom">
+    <h2>{item.name}</h2>
+      {item.products.map((prod)=><Item {...prod} />)}
+     </div>
   );
 }
 
