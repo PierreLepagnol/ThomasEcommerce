@@ -45,7 +45,7 @@ export default function OrderForm() {
       city: "",
       postal_code: "",
       email: "",
-      qt_menu1: 0,
+      qt_menu1: 1,
       qt_menu2: 0,
       qt_appetizer1: 0,
       qt_appetizer2: 0,
@@ -126,8 +126,9 @@ export default function OrderForm() {
         formik={formik}
         product={product}
       />
+      <div className="food_sumup">
       <h3>Ma carte</h3>
-      <ul className="food_sumup">
+     {(formik.values.qt_menu1===0 && formik.values.qt_menu2===0)?(<p className="invalid_menu">Veuillez séléctionner un menu principal.</p>):(<ul className="food_sumup_list">
         {formik.values.qt_menu1===0?null:<li>Menu 1 X {formik.values.qt_menu1} ({product[0].price*formik.values.qt_menu1} €)</li>}
         {formik.values.qt_menu2===0?null:<li>Menu 2 X {formik.values.qt_menu2} ({product[1].price*formik.values.qt_menu2} €)</li>}
         {formik.values.qt_appetizer1===0?null:<li> {appetizer.products[0].name}X {formik.values.qt_appetizer1} ({appetizer.products[0].price*formik.values.qt_appetizer1} €)</li>}
@@ -135,8 +136,9 @@ export default function OrderForm() {
         {formik.values.qt_fromage===0?null:<li> {cheeses.products[0].name}X {formik.values.qt_fromage} ({cheeses.products[0].price*formik.values.qt_fromage} €)</li>}
         {formik.values.qt_cuteness1===0?null:<li> {cuteness.products[0].name}X {formik.values.qt_cuteness1} ({cuteness.products[0].price*formik.values.qt_cuteness1} €)</li>}
         {formik.values.qt_cuteness2===0?null:<li> {cuteness.products[1].name}X {formik.values.qt_cuteness2} ({cuteness.products[1].price*formik.values.qt_cuteness2} €)</li>}
-        
-      </ul>
+      </ul>)}
+
+      </div>
       <p>
         Total : {product.price} x {1}={product.price * 1} €
       </p>
@@ -151,8 +153,7 @@ export default function OrderForm() {
 }
 
 const MyCheckoutForm = ({ formik, isProcessing, product }) => {
-  
-  const CARD_ELEMENT_OPTIONS = {
+    const CARD_ELEMENT_OPTIONS = {
     style: {
       base: {
         color: "#32325d",
@@ -170,7 +171,6 @@ const MyCheckoutForm = ({ formik, isProcessing, product }) => {
     },
     hidePostalCode: true,
   };
-
   const inputs = [
     [
       { id: "name", name: "name", placeholder: "Nom - Prenom", type: "text" },

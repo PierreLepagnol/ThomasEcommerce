@@ -150,6 +150,10 @@ input{ width: 70%;}
   
 
 }
+.invalid_menu{
+  font-weight: bold;
+  color: #fa755a;
+}
 
 nav > ul {
   list-style-type: none;
@@ -174,13 +178,21 @@ nav > ul {
   border-radius: 50px 15px;
 }
 
-
 .food_sumup{
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.food_sumup>li{
+.food_sumup_list{
+  padding: 0;
+  color: #aab7c4;
+  border: 1.5px dashed;
+  width: 60%;
+}
+.food_sumup_list>li{
+  padding: 8px 0px;
   background-color: transparent;
-  padding: 5px;
+  text-align: center;
 }
 
 li {
@@ -196,11 +208,6 @@ a {
   text-decoration: none;
 }
 
-.vertical {
-  border-left: 1px solid #000;
-  position: absolute;
-  height: 10%;
-}
 
 .bg-black {
   background-color: #000;
