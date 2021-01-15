@@ -47,3 +47,7 @@ justify-content: left;
 .label-radio{
     margin: 3%;
 }
+
+#my-radio-group{
+  margin-bottom: 150px;
+}

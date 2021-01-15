@@ -1,4 +1,6 @@
 .App {
+  height: 100vh;
+
   width: 100vw;
   text-align: center;
   display: flex;
@@ -17,6 +19,8 @@
 
 .main-title{
   width: 100%;
+  box-shadow: 0 0px 5px 0px rgba(0, 0, 0, 0.1);
+
   border-radius: 0 0 50px 50px;
   background-color: #fff;
   font-size:1.5em;
@@ -24,11 +28,12 @@
 }
 
 .main-container{
-  display: flex;
-  justify-content: space-evenly;
+  padding: 0em 3em;
 }
 .main-view {
-width: 50%;
+display: flex;
+justify-content: space-evenly;
+width: 90%;
 }
 .sidebar {
   width: fit-content;
@@ -36,7 +41,7 @@ width: 50%;
   position: -webkit-sticky;
 position: sticky;
 top: 45px;
-min-width: 30%;
+min-width: 515px;
 }
 
 .content-container {
@@ -48,36 +53,16 @@ min-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .row{
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-h1,h2,h3,h4{
-  margin: 5px;
-}
-h1 {
-  font-size: 1.5em;
-  margin: 0em 0 0.5em 0;
-  font-family: "Times New Roman", Times, serif;
-}
-h2 {
-  font-size: 1.5em;
-}
-h3 {
-  font-size: 1em;
-}
-h4 {
-  font-size: 0.5em;
-}
-h5 {
-  font-size: 0.25em;
-}
-
+  justify-content: center;
+} 
 .margin-bottom{
-  margin-bottom: 5em;
+  margin-bottom: 2.5em;
 }
 .presview{
   margin: 1%;
@@ -121,6 +106,7 @@ button[type="submit"]{
 input,
 textarea {
   margin: 2% 0;
+  font-size: 1em;
 }
 
 textarea {
@@ -151,10 +137,14 @@ input[type="button"] {
 }
 input{ width: 70%;}
 
+.row > input{
+  margin: 10px;
+}
+
 .features-small-item {
   background: #ffffff;
-  box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  box-shadow: 0 0px 50px 0px rgba(0, 0, 0, 0.1);
+  border-radius:10px;
   padding: 10px;
   text-align: center;
   
@@ -179,9 +169,18 @@ nav > ul {
 .main-nav >li {
   display: block;
   font-size: 16px;
-  margin: 2% 1%;
+  margin: 1%;
   padding: 10px;
   border-radius: 50px 15px;
+}
+
+
+.food_sumup{
+  padding: 0;
+}
+.food_sumup>li{
+  background-color: transparent;
+  padding: 5px;
 }
 
 li {

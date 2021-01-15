@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useAlert } from 'react-alert'
 import axios from "axios";
 
-export default function ContactForm({ product }) {
+export default function ContactForm() {
   const alert = useAlert();
   const formik = useFormik({
     initialValues: { name: "", phone: "", email: "" },

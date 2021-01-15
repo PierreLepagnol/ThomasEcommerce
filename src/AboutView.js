@@ -2,10 +2,10 @@ import React from "react";
 
 export default function AboutView() {
   return (
-    <>
+    <div className="features-small-item presview">
       <Whois />
       <Concept />
-    </>
+    </div>
   );
 }
 
