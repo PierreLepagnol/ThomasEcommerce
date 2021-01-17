@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ThomasEcommerce/static/css/main.72235cac.chunk.css",
-    "main.js": "/ThomasEcommerce/static/js/main.ce09eb82.chunk.js",
-    "main.js.map": "/ThomasEcommerce/static/js/main.ce09eb82.chunk.js.map",
+    "main.css": "/ThomasEcommerce/static/css/main.32513d66.chunk.css",
+    "main.js": "/ThomasEcommerce/static/js/main.bfcc4be6.chunk.js",
+    "main.js.map": "/ThomasEcommerce/static/js/main.bfcc4be6.chunk.js.map",
     "runtime-main.js": "/ThomasEcommerce/static/js/runtime-main.fb9fb567.js",
     "runtime-main.js.map": "/ThomasEcommerce/static/js/runtime-main.fb9fb567.js.map",
     "static/js/2.92fb6773.chunk.js": "/ThomasEcommerce/static/js/2.92fb6773.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.8b53d118.chunk.js": "/ThomasEcommerce/static/js/3.8b53d118.chunk.js",
     "static/js/3.8b53d118.chunk.js.map": "/ThomasEcommerce/static/js/3.8b53d118.chunk.js.map",
     "index.html": "/ThomasEcommerce/index.html",
-    "static/css/main.72235cac.chunk.css.map": "/ThomasEcommerce/static/css/main.72235cac.chunk.css.map",
+    "static/css/main.32513d66.chunk.css.map": "/ThomasEcommerce/static/css/main.32513d66.chunk.css.map",
     "static/js/2.92fb6773.chunk.js.LICENSE.txt": "/ThomasEcommerce/static/js/2.92fb6773.chunk.js.LICENSE.txt",
-    "static/media/Canard.b4f5a703.png": "/ThomasEcommerce/static/media/Canard.b4f5a703.png"
+    "static/media/3canardslogo.41f21247.png": "/ThomasEcommerce/static/media/3canardslogo.41f21247.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fb9fb567.js",
     "static/js/2.92fb6773.chunk.js",
-    "static/css/main.72235cac.chunk.css",
-    "static/js/main.ce09eb82.chunk.js"
+    "static/css/main.32513d66.chunk.css",
+    "static/js/main.bfcc4be6.chunk.js"
   ]
 }
